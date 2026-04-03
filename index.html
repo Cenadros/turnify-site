@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnify — Calendario de Turnos</title>
-    <meta name="description" content="Tu planilla de turnos, bonita y en segundos. Calendario de turnos para enfermeras con paletas de colores y modo pintar.">
+    <meta name="description" content="Tu planilla de turnos, bonita y en segundos. Calendario de turnos para enfermeras con paletas de colores, patrones, estadísticas y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
         :root {
             --primary: #5E5CE6;
             --secondary: #BF5AF2;
-            --morning: #34C759;
-            --afternoon: #FF9500;
-            --night: #5E5CE6;
-            --guard: #FF3B30;
-            --custom: #AF52DE;
-            --off: #C7C7CC;
+            --morning: #f9a8c9;
+            --evening: #c084b6;
+            --night: #7c6f9e;
+            --guard: #f6c89f;
+            --vacation: #a0d8e8;
+            --off: #d4ecc6;
             --text-primary: #1D1D1F;
             --text-secondary: #6E6E73;
             --surface: #F5F5F7;
@@ -144,7 +144,7 @@
         }
         .pill-2 {
             width: 40px; height: 14px;
-            background: var(--afternoon);
+            background: var(--evening);
             opacity: 0.15;
             top: 25%; right: 12%;
             animation-delay: 3s;
@@ -176,7 +176,7 @@
         }
         .pill-6 {
             width: 44px; height: 15px;
-            background: var(--custom);
+            background: var(--vacation);
             opacity: 0.13;
             bottom: 20%; right: 18%;
             animation-delay: 2s;
@@ -306,11 +306,11 @@
             color: var(--text-secondary);
         }
 
-        .cal-day.morning { background: var(--morning); }
-        .cal-day.afternoon { background: var(--afternoon); }
-        .cal-day.night { background: var(--primary); }
-        .cal-day.guard { background: var(--guard); }
-        .cal-day.custom { background: var(--custom); }
+        .cal-day.morning { background: var(--morning); color: var(--text-primary); }
+        .cal-day.evening { background: var(--evening); }
+        .cal-day.night { background: var(--night); }
+        .cal-day.guard { background: var(--guard); color: var(--text-primary); }
+        .cal-day.vacation { background: var(--vacation); color: var(--text-primary); }
 
         /* ── App Store badge ── */
         .store-badge {
@@ -496,7 +496,7 @@
     <p class="subtitle" data-es="Tu planilla de turnos, bonita y en segundos" data-en="Your shift planner, beautiful and instant">Tu planilla de turnos, bonita y en segundos</p>
 
     <!-- Description -->
-    <p class="description" data-es="Calendario de turnos pensado para enfermeras. Paletas de colores cuquis, modo pintar para rellenar tu planilla al instante, y todo lo que necesitas para organizar tus turnos sin complicaciones." data-en="A shift calendar made for nurses. Cute color palettes, paint mode to fill your schedule instantly, and everything you need to organize your shifts without the fuss.">Calendario de turnos pensado para enfermeras. Paletas de colores cuquis, modo pintar para rellenar tu planilla al instante, y todo lo que necesitas para organizar tus turnos sin complicaciones.</p>
+    <p class="description" data-es="Calendario de turnos pensado para enfermeras. Paletas de colores cuquis, patrones de turnos, estadísticas, exportación a iCal y Google Calendar, y comparte tu planilla con tus compañeras al instante." data-en="A shift calendar made for nurses. Cute color palettes, shift patterns, statistics, export to iCal and Google Calendar, and share your schedule with colleagues instantly.">Calendario de turnos pensado para enfermeras. Paletas de colores cuquis, patrones de turnos, estadísticas, exportación a iCal y Google Calendar, y comparte tu planilla con tus compañeras al instante.</p>
 
     <!-- Mini calendar -->
     <div class="calendar-preview" aria-hidden="true">
@@ -512,7 +512,7 @@
         <div class="cal-day empty"></div>
         <div class="cal-day morning">1</div>
         <div class="cal-day morning">2</div>
-        <div class="cal-day afternoon">3</div>
+        <div class="cal-day evening">3</div>
         <div class="cal-day off">4</div>
         <div class="cal-day off">5</div>
 
@@ -521,29 +521,29 @@
         <div class="cal-day off">8</div>
         <div class="cal-day morning">9</div>
         <div class="cal-day morning">10</div>
-        <div class="cal-day afternoon">11</div>
+        <div class="cal-day evening">11</div>
         <div class="cal-day guard">12</div>
 
         <div class="cal-day off">13</div>
-        <div class="cal-day custom">14</div>
+        <div class="cal-day vacation">14</div>
         <div class="cal-day morning">15</div>
         <div class="cal-day morning">16</div>
         <div class="cal-day night">17</div>
         <div class="cal-day night">18</div>
         <div class="cal-day off">19</div>
 
-        <div class="cal-day afternoon">20</div>
-        <div class="cal-day afternoon">21</div>
+        <div class="cal-day evening">20</div>
+        <div class="cal-day evening">21</div>
         <div class="cal-day off">22</div>
         <div class="cal-day morning">23</div>
         <div class="cal-day guard">24</div>
-        <div class="cal-day custom">25</div>
+        <div class="cal-day vacation">25</div>
         <div class="cal-day off">26</div>
 
         <div class="cal-day night">27</div>
         <div class="cal-day morning">28</div>
         <div class="cal-day morning">29</div>
-        <div class="cal-day afternoon">30</div>
+        <div class="cal-day evening">30</div>
         <div class="cal-day off">31</div>
         <div class="cal-day empty"></div>
         <div class="cal-day empty"></div>
