@@ -8,6 +8,7 @@ Sitio web estatico de [Turnify](https://github.com) — Calendario de Turnos.
 index.html              Landing page
 privacy-policy.html     Politica de privacidad
 support.html            Pagina de soporte
+get.html                Redirección a la tienda según plataforma
 ```
 
 ## Despliegue

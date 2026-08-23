@@ -315,11 +315,15 @@
         /* ── App Store badge ── */
         .store-badge {
             margin-top: 2.5rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
             animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
             animation-delay: 0.85s;
         }
 
-        .store-placeholder {
+        .store-link {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
@@ -334,23 +338,27 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
 
-        .store-placeholder:hover {
+        .store-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 24px rgba(0,0,0,0.18);
         }
 
-        .store-placeholder .apple-icon {
+        .store-link .apple-icon {
             font-size: 1.4rem;
             line-height: 1;
         }
 
-        .store-placeholder .store-text {
+        .store-link .play-icon {
+            flex-shrink: 0;
+        }
+
+        .store-link .store-text {
             display: flex;
             flex-direction: column;
             line-height: 1.2;
         }
 
-        .store-placeholder .store-text small {
+        .store-link .store-text small {
             font-size: 0.6rem;
             font-weight: 400;
             opacity: 0.8;
@@ -358,7 +366,7 @@
             letter-spacing: 0.04em;
         }
 
-        .store-placeholder .store-text span {
+        .store-link .store-text span {
             font-size: 1rem;
             font-weight: 600;
         }
@@ -549,13 +557,20 @@
         <div class="cal-day empty"></div>
     </div>
 
-    <!-- App Store badge placeholder -->
+    <!-- Store badges -->
     <div class="store-badge">
-        <a href="#" class="store-placeholder" id="store-link" aria-label="Download on the App Store">
+        <a href="https://apps.apple.com/app/id6761343146" class="store-link" aria-label="Download on the App Store">
             <span class="apple-icon">&#63743;</span>
             <span class="store-text">
                 <small data-es="Disponible en" data-en="Download on the">Disponible en</small>
                 <span>App Store</span>
+            </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.turnify.android" class="store-link" aria-label="Get it on Google Play">
+            <svg class="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+            <span class="store-text">
+                <small data-es="Disponible en" data-en="Get it on">Disponible en</small>
+                <span>Google Play</span>
             </span>
         </a>
     </div>

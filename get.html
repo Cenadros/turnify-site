@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnify — Descarga / Download</title>
+    <meta name="robots" content="noindex">
+    <script id="store-router">
+        // Pure: (userAgent, maxTouchPoints) -> store URL or null. iPadOS Safari
+        // reports a Macintosh UA; touch points tell it apart from a real Mac.
+        window.storeFor = function (ua, touchPoints) {
+            if (/android/i.test(ua)) return "https://play.google.com/store/apps/details?id=com.turnify.android";
+            if (/iPhone|iPad|iPod/i.test(ua)) return "https://apps.apple.com/app/id6761343146";
+            if (/Macintosh/.test(ua) && touchPoints > 1) return "https://apps.apple.com/app/id6761343146";
+            return null;
+        };
+        (function () {
+            var u = window.storeFor(navigator.userAgent, navigator.maxTouchPoints || 0);
+            if (u) location.replace(u);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5E5CE6;
+            --secondary: #BF5AF2;
+            --text-primary: #1D1D1F;
+            --text-secondary: #6E6E73;
+            --surface: #F5F5F7;
+            --bg: #FEFCFA;
+            --off: #d4ecc6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── Lang toggle ── */
+        .lang-toggle {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 100px;
+            padding: 3px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .lang-btn {
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-secondary);
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(94,92,230,0.3);
+        }
+
+        .lang-btn:not(.active):hover {
+            color: var(--text-primary);
+        }
+
+        /* ── App icon ── */
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow:
+                0 8px 32px rgba(94,92,230,0.25),
+                0 2px 8px rgba(191,90,242,0.15);
+        }
+
+        .app-icon span {
+            font-family: 'Bricolage Grotesque', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Bricolage Grotesque', serif;
+            font-size: clamp(2rem, 6vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 420px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ── Store badges ── */
+        .store-badge {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.6rem;
+            background: var(--text-primary);
+            color: #fff;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .store-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+        }
+
+        .store-link .apple-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .store-link .play-icon {
+            flex-shrink: 0;
+        }
+
+        .store-link .store-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .store-link .store-text small {
+            font-size: 0.6rem;
+            font-weight: 400;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .store-link .store-text span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Language toggle -->
+<div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- App icon -->
+<div class="app-icon">
+    <span>T</span>
+</div>
+
+<h1>Turnify</h1>
+
+<p class="subtitle" data-es="Calendario de turnos para iPhone y Android" data-en="Shift calendar for iPhone and Android">Calendario de turnos para iPhone y Android</p>
+
+<!-- Store badges -->
+<div class="store-badge">
+    <a href="https://apps.apple.com/app/id6761343146" class="store-link" aria-label="Download on the App Store">
+        <span class="apple-icon">&#63743;</span>
+        <span class="store-text">
+            <small data-es="Disponible en" data-en="Download on the">Disponible en</small>
+            <span>App Store</span>
+        </span>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.turnify.android" class="store-link" aria-label="Get it on Google Play">
+        <svg class="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
+        <span class="store-text">
+            <small data-es="Disponible en" data-en="Get it on">Disponible en</small>
+            <span>Google Play</span>
+        </span>
+    </a>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="privacy-policy.html" data-es="Politica de Privacidad" data-en="Privacy Policy">Politica de Privacidad</a>
+        <a href="support.html" data-es="Soporte" data-en="Support">Soporte</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Turnify</p>
+</footer>
+
+<script>
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        document.querySelectorAll('[data-es][data-en]').forEach(function(el) {
+            el.textContent = el.getAttribute('data-' + lang);
+        });
+    }
+
+    if (navigator.language && navigator.language.indexOf('en') === 0) {
+        setLang('en');
+    }
+</script>
+
+</body>
+</html>
