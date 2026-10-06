@@ -371,6 +371,45 @@
             font-weight: 600;
         }
 
+        /* ── About ── */
+        .about {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
+        }
+
+        .about p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 0.9rem;
+        }
+
+        .about-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .about-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .about-links a:hover {
+            color: var(--primary);
+        }
+
         /* ── Footer ── */
         footer {
             padding: 2.5rem 1.5rem;
@@ -466,6 +505,30 @@
             }
         }
     </style>
+    <link rel="canonical" href="https://turnify.me/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Turnify",
+        "url": "https://turnify.me/",
+        "email": "soporte@turnify.me",
+        "founder": {
+            "@type": "Person",
+            "name": "Alejandro Sánchez Gómez",
+            "sameAs": "https://www.linkedin.com/in/alsago/"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Salamanca",
+            "addressCountry": "ES"
+        },
+        "sameAs": [
+            "https://apps.apple.com/app/id6761343146",
+            "https://play.google.com/store/apps/details?id=com.turnify.android"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -575,6 +638,16 @@
         </a>
     </div>
 
+</section>
+
+<section class="about" id="about">
+    <h2 data-es="Sobre Turnify" data-en="About Turnify">Sobre Turnify</h2>
+    <p data-es="Turnify es un calendario de turnos para enfermeras y otros profesionales que trabajan a turnos. Está disponible en iPhone, iPad, Apple Watch, Android y Wear OS." data-en="Turnify is a shift calendar for nurses and other shift workers. It is available on iPhone, iPad, Apple Watch, Android and Wear OS.">Turnify es un calendario de turnos para enfermeras y otros profesionales que trabajan a turnos. Está disponible en iPhone, iPad, Apple Watch, Android y Wear OS.</p>
+    <p data-es="Lo desarrolla Alejandro Sánchez Gómez en Salamanca, España. La primera versión se publicó en abril de 2026." data-en="It is built by Alejandro Sánchez Gómez in Salamanca, Spain. The first version was released in April 2026.">Lo desarrolla Alejandro Sánchez Gómez en Salamanca, España. La primera versión se publicó en abril de 2026.</p>
+    <div class="about-links">
+        <a href="mailto:soporte@turnify.me">soporte@turnify.me</a>
+        <a href="https://www.linkedin.com/in/alsago/" rel="me noopener">LinkedIn</a>
+    </div>
 </section>
 
 <footer>
